@@ -9,6 +9,8 @@ const object = new Schema({
         ref: "object",
         default: null
     },
+    index: { type: Number, default: 9999 },
+    active: { type: String, enum: ['yes', 'no'], default: 'yes' },
     description: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
 }, {
