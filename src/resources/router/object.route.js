@@ -8,7 +8,7 @@ route.post("/add", objectController.add);
 route.put("/:slug", objectController.update);
 
 route.delete("/delete-many", objectController.deleteMany);
-route.delete("/:slug", objectController.delete);
+route.delete("/:id", objectController.delete);
 
 route.get("/:slug", objectController.detail);
 route.get("/", objectController.index);

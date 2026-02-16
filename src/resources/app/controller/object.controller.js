@@ -59,11 +59,6 @@ class ObjectController {
             if(exitName) {
                 return res.status(400).json({ message: 'Tên môn học đã tồn tại, vui lòng chọn tên khác!' }); 
             }
-            if(!thumbnail) {
-                return res.status(400).json({ 
-                    message: 'Vui lòng chọn ảnh!' 
-                });
-            }
             if(!slug) {
                 return res.status(400).json({ 
                     message: 'Đường dẫn không được để trống!' 
@@ -158,15 +153,16 @@ class ObjectController {
         }
     }
 
-    /** [DELETE] /objects/:slug */
+    /** [DELETE] /objects/:id */
     async delete(req, res) {
         try {
-            const slug = req.params.slug;
-            const object = await Object.findOne({ slug: slug });
+            const id = req.params.id;
+            console.log(id);
+            const object = await Object.findById(id);
             if (!object) {
                 return res.status(404).json({ message: 'Môn học không tồn tại!' });
             }
-            await Object.deleteOne({ slug: slug });
+            await Object.deleteOne({ _id: id });
             return res.status(200).json({ message: 'Xóa môn học thành công!' });
         } catch (error) {
             console.error(error);

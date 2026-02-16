@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const object = new Schema({
     name: { type: String, required: true, unique: true },
-    thumbnail: { type: String, required: true },
+    thumbnail: { type: String },
     parentId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "object",
