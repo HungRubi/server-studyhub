@@ -4,9 +4,9 @@ const route = require('./resources/router/index.route');
 const methodOverride = require('method-override');
 const cors = require('cors');
 const passport = require('passport');
-const cookieParser = require('cookie-parser')
-const dotenv = require("dotenv");
-const path = require("path")
+const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -16,9 +16,9 @@ const app = express();
 app.use(cookieParser());
 
 app.use(
-    express.urlencoded({
-        extended: true,
-    }),
+	express.urlencoded({
+		extended: true,
+	})
 );
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
@@ -28,16 +28,15 @@ app.use(methodOverride('_method'));
 
 app.use(passport.initialize());
 
-app.use(cors({
-    origin: [
-        "http://localhost:3000", 
-        "http://localhost:5173", 
-    ],
-    credentials: true
-}));
+app.use(
+	cors({
+		origin: ['http://localhost:3000', 'http://localhost:5173'],
+		credentials: true,
+	})
+);
 db.connect();
 route(app);
 
 app.listen(port, () => {
-    console.log(`App is running at localhost:${port}`);
+	console.log(`App is running at localhost:${port}`);
 });

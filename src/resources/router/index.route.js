@@ -1,7 +1,5 @@
-const objectRoute = require("./object.route");
-
 function route(app) {
-    app.use("/objects", objectRoute);
+	// Routes sẽ thêm sau khi có model/controller
 }
 
 module.exports = route;
