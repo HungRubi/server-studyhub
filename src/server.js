@@ -1,5 +1,7 @@
 const express = require('express');
 const db = require('./config/db/index');
+require('./resources/app/model/role.model');
+require('./resources/app/model/user.model');
 const route = require('./resources/router/index.route');
 const methodOverride = require('method-override');
 const cors = require('cors');

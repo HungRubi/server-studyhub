@@ -32,6 +32,9 @@ async function connect() {
 	try {
 		await sequelize.authenticate();
 		console.log('Connect successfully!');
+		// Bảng đã tạo sẵn, không sync alter. Nếu bảng users chưa có cột refresh_token: ALTER TABLE users ADD COLUMN refresh_token VARCHAR(500) NULL;
+		await sequelize.sync();
+		console.log('Database ready.');
 	} catch (error) {
 		console.error('Connect failed:', error.message);
 		throw error;

@@ -1,5 +1,7 @@
+const authRoute = require('./auth.route');
+
 function route(app) {
-	// Routes sẽ thêm sau khi có model/controller
+	app.use('/auth', authRoute);
 }
 
 module.exports = route;
